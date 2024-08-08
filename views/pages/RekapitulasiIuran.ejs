@@ -1,0 +1,132 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Relapitulasi Iuran</h3>
+        </div>
+        <div class="card-body">
+          <div class="mt-2">
+              <select style="width: 20%;">
+                  <option value="1">Iuran Masuk</option>
+                  <option value="2">Iuran Belum Dibayar</option>
+                  <option value="3">Iuran Pending</option>
+              </select>
+          </div>
+            <div class="mt-4">
+              <table
+                class="table table-striped"
+                id="datamasuk"
+                style="width: 100%"
+              >
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Tahun</th>
+                    <th>Index Per Bulan</th>
+                    <th>Jumlah orang</th>
+                    <th>Jumlah</th>
+                    <th>Keterangan</th>
+                    
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      var token = "<%= csrfToken %>";
+      var datasimpan = "";
+      $.ajaxSetup({
+        headers: {
+          "X-CSRF-TOKEN": token,
+        },
+      });
+  
+      $(document).ready(function () {
+        var tableaplikasi = $("#datamasuk").dataTable({
+          processing: true,
+          paging: true,
+          bInfo: true,
+          serverside: true,
+          // "ajax":{
+  
+          //     "url":'/datatableaksespengguna',
+          //     "type":"POST",
+          //     "dataSrc":"",
+          // },
+          columns: [
+            {
+              data: "id_no",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "no_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "asal_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "tgl_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "tgl_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "isi_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+          ],
+        });
+      });
+    </script>
+  </div>
+  

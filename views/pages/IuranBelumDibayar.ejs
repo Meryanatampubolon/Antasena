@@ -1,0 +1,172 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h3>Iuran Belum Dibayar</h3>
+        </div>
+        <div class="card-body">
+          <div class="mt-2">
+              <select style="width: 20%;">
+                  <option value="1">Januari</option>
+                  <option value="2">Februari</option>
+                  <option value="3">Maret</option>
+                  <option value="4">April</option>
+                  <option value="5">Mei</option>
+                  <option value="6">Juni</option>
+                  <option value="7">Juli</option>
+                  <option value="8">Agustus</option>
+                  <option value="9">September</option>
+                  <option value="10">Oktober</option>
+                  <option value="11">November</option>
+                  <option value="12">Desember</option>
+              </select>
+          </div>
+            <div class="mt-4">
+              <table
+                class="table table-striped"
+                id="datamasuk"
+                style="width: 100%"
+              >
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>No Akademik</th>
+                    <th>Nama</th>
+                    <th>Korps</th>
+                    <th>Tanggal Bayar</th>
+                    <!-- <th>Isi Surat</th>
+                    <th>Status</th>
+                    <th>File</th>
+                    <th>Tampil</th> -->
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      var token = "<%= csrfToken %>";
+      var datasimpan = "";
+      $.ajaxSetup({
+        headers: {
+          "X-CSRF-TOKEN": token,
+        },
+      });
+  
+      $(document).ready(function () {
+        var tableaplikasi = $("#datamasuk").dataTable({
+          processing: true,
+          paging: true,
+          bInfo: true,
+          serverside: true,
+          layout: {
+            topStart: {
+              buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+            
+          },
+          
+          // "ajax":{
+  
+          //     "url":'/datatableaksespengguna',
+          //     "type":"POST",
+          //     "dataSrc":"",
+          // },
+          columns: [
+            {
+              data: "id_no",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "no_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "asal_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "tgl_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            {
+              data: "tgl_surat",
+              autoWidth: true,
+              render: function (data) {
+                return (
+                  '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+                  data +
+                  "</div>"
+                );
+              },
+            },
+            // {
+            //   data: "isi_surat",
+            //   autoWidth: true,
+            //   render: function (data) {
+            //     return (
+            //       '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+            //       data +
+            //       "</div>"
+            //     );
+            //   },
+            // },
+            // {
+            //   data: "file",
+            //   autoWidth: true,
+            //   render: function (data) {
+            //     return (
+            //       '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+            //       data +
+            //       "</div>"
+            //     );
+            //   },
+            // },
+            // {
+            //   data: "tampil",
+            //   autoWidth: true,
+            //   render: function (data) {
+            //     return (
+            //       '<div style="text-align: left; font-size: 12px; width: 100%;">' +
+            //       data +
+            //       "</div>"
+            //     );
+            //   },
+            // },
+          ],
+        });
+      });
+    </script>
+  </div>
+  
